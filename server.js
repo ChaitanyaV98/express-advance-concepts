@@ -1,6 +1,7 @@
 import express from "express";
 import configureCors from "./config/corsConfig.js";
 import { addTimeStamp, reqLogger } from "./middleware/customMiddleware.js";
+import { globalErrorHandler } from "./middleware/errorHandler.js";
 
 const port = process.env.PORT || 3000;
 
@@ -14,6 +15,8 @@ app.use(addTimeStamp); // this will add timestamp to the req obj
 app.use(configureCors());
 //express json middleware
 app.use(express.json());
+
+app.use(globalErrorHandler);
 
 app.listen(port, () => {
   console.log(`Server is running at port ${port}`);
