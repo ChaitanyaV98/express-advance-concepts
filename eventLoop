@@ -1,0 +1,17 @@
+event loop is a core mechanism in Node js where it asynchronous i/p o/p operations without blocking on a single thread.
+it keeps checking the event queue and handles the call backs
+
+- phases include
+
+1. timers(settimeout and setInterval)
+2. pending callbacks
+3. idle and prepare( this will be internally handled by nodejs)
+4. poll(retrieves new i/p o/p and executes new i/p o/p related call backs)
+5. check( here is where the setImmedeate function executes)
+6. close call back
+
+// also we need to know the concepts of micro and macro task
+// microtask: these are operations that gets executed as soon as the current operation is done - setNexttick, promises will get handled first as part of event loop
+// macro task : are the tasks that gets executed in the next iteration of the event loop like for setTimeout, setInterval and setImmedeate comes under this part.
+
+check how the function gets executed when the timers of setTimeout, setInterval, setImmedea
